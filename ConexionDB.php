@@ -1,4 +1,25 @@
 <?php
+
+if (php_sapi_name() !== 'cli' && basename($_SERVER['SCRIPT_FILENAME']) === 'ConexionDB.php') {
+    http_response_code(403);
+    # die("Acceso denegado");
+    
+?>
+
+<HTML>
+    <head></head>
+    <body>
+        <h1>403 - Acceso Denegado</h1>
+        <p>No tienes permiso para acceder a este recurso.</p>
+        <p><a href="index.php">Volver al inicio de sesión</a></p>
+    </body>
+</HTML>
+
+<?php
+
+
+}
+
 class ConexionDB
 {
     private $host = "localhost";
