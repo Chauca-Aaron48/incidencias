@@ -49,10 +49,10 @@ INSERT INTO `incidencia` (`id`, `id_usuario`, `titulo`, `descripcion`, `priorida
 -- --------------------------------------------------------
 
 --
--- Table structure for table `usuarios`
+-- Table structure for table `usuario`
 --
 
-CREATE TABLE `usuarios` (
+CREATE TABLE `usuario` (
   `id` int(11) NOT NULL,
   `usuario` varchar(35) NOT NULL,
   `clave` varchar(35) NOT NULL,
@@ -60,10 +60,10 @@ CREATE TABLE `usuarios` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `usuarios`
+-- Dumping data for table `usuario`
 --
 
-INSERT INTO `usuarios` (`id`, `usuario`, `clave`, `nombre`) VALUES
+INSERT INTO `usuario` (`id`, `usuario`, `clave`, `nombre`) VALUES
 (1, 'admin_web', 'p@ssword_2026', 'Pedro Páramo'),
 (3, 'g_web_Anibal', 'inci2026@', 'Anibal Cruz'),
 (4, 'jFloresPam', '2026@flores', 'Juanes Flores'),
@@ -83,9 +83,9 @@ ALTER TABLE `incidencia`
   ADD KEY `id_usuario` (`id_usuario`);
 
 --
--- Indexes for table `usuarios`
+-- Indexes for table `usuario`
 --
-ALTER TABLE `usuarios`
+ALTER TABLE `usuario`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -99,9 +99,9 @@ ALTER TABLE `incidencia`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `usuarios`
+-- AUTO_INCREMENT for table `usuario`
 --
-ALTER TABLE `usuarios`
+ALTER TABLE `usuario`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
@@ -112,7 +112,7 @@ ALTER TABLE `usuarios`
 -- Constraints for table `incidencia`
 --
 ALTER TABLE `incidencia`
-  ADD CONSTRAINT `incidencia_usuario` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id`);
+  ADD CONSTRAINT `incidencia_usuario` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
