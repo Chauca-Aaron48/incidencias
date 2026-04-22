@@ -2,7 +2,7 @@
 
 if (php_sapi_name() !== 'cli' && basename($_SERVER['SCRIPT_FILENAME']) === 'ConexionDB.php') {
     http_response_code(403);
-    die("Acceso denegado");
+
 
 ?>
 
