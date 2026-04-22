@@ -67,16 +67,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 				<h3>Formulario de registro</h3>
 			</legend>
 			<label for="titulo">Título:</label><br>
-			<input type="text" name="titulo" id="titulo" value="<?php echo htmlspecialchars($titulo); ?>" required>
+		<input type="text" name="titulo" id="titulo" value="<?php echo htmlspecialchars($titulo); ?>">
 			<br><br>
-
 			<label for="descripcion">Descripción:</label><br>
-			<textarea name="descripcion" id="descripcion" rows="4" cols="50"
-				required><?php echo htmlspecialchars($descripcion); ?></textarea>
+			<textarea name="descripcion" id="descripcion" rows="4" cols="50"><?php echo htmlspecialchars($descripcion); ?></textarea>
 			<br><br>
 
 			<label for="prioridad">Prioridad:</label>
-			<select name="prioridad" id="prioridad" required>
+			<select name="prioridad" id="prioridad">
 				<option value="Alta" <?php echo $prioridad === 'Alta' ? 'selected' : ''; ?>>Alta</option>
 				<option value="Media" <?php echo $prioridad === 'Media' ? 'selected' : ''; ?>>Media</option>
 				<option value="Baja" <?php echo $prioridad === 'Baja' ? 'selected' : ''; ?>>Baja</option>
