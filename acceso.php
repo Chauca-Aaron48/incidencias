@@ -2,6 +2,7 @@
 require_once 'Usuario.php';
 
 session_start();
+
 if (empty($_POST['usuario']) || empty($_POST["clave"])) {
     header('Location: 401.php');
     exit();

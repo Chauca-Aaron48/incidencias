@@ -1,6 +1,11 @@
 <?php
 require_once 'ConexionDB.php';
 
+if (php_sapi_name() !== 'cli' && basename($_SERVER['SCRIPT_FILENAME']) === 'Incidencia.php') {
+    header('Location: index.php');
+    exit();
+}
+
 /**
  * Clase que centraliza toda la lógica de incidencias en la BD
  */
