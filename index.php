@@ -7,13 +7,13 @@ if (isset($_SESSION['usuario']) && isset($_SESSION['clave'])) {
 
 $usuarioGuardado = '';
 $claveGuardada = '';
-$idiomaGuardado = 'es';
+$idiomaEspanol = true;
 $recordarChecked = false;
 
 if (isset($_COOKIE['c_recordarme']) && $_COOKIE['c_recordarme'] == true) {
     $usuarioGuardado = $_COOKIE['c_usuario'] ?? '';
     $claveGuardada = $_COOKIE['c_clave'] ?? '';
-    $idiomaGuardado = $_COOKIE['c_idioma'] ?? 'es';
+    $idiomaEspanol = (($_COOKIE['c_idioma'] ?? '') === '1' || ($_COOKIE['c_idioma'] ?? '') == true);
     $recordarChecked = true;
 }
 
@@ -43,9 +43,10 @@ if (isset($_COOKIE['c_recordarme']) && $_COOKIE['c_recordarme'] == true) {
             <br><br>
             <label for="idioma">Idioma:</label>
 			<select name="idioma" id="idioma">
-				<option value="es" <?php echo ($idiomaGuardado === 'es') ? 'selected' : ''; ?>>Español</option>
-				<option value="en" <?php echo ($idiomaGuardado === 'en') ? 'selected' : ''; ?>>Inglés</option>
+				<option value="es" <?php echo $idiomaEspanol ? 'selected' : ''; ?>>Español</option>
+				<option value="en" <?php echo !$idiomaEspanol ? 'selected' : ''; ?>>Inglés</option>
 			</select>
+            <br><br>
             <input type="checkbox" name="recordarme" id="recordarme" <?php echo $recordarChecked ? 'checked' : ''; ?>>
             <label for="recordarme">Recordar mis datos</label>
             <br><br>
